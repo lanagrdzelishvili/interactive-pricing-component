@@ -53,37 +53,45 @@ main h3 {
 }
 .line {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 24px;
 }
-.progres {
-    position: absolute;
-    left: 20px;
-    width: 50%;
-    background-color: #A4F3EB;
-    height: 8px;
-    border-radius: 5px;
-}
-#slider {
+.line input {
     background-color: #ECF0FB;
     width: 279px;
     height: 8px;
     border-radius: 5px;
     -webkit-appearance: none;
 }
-.blue-circle {
-    position: absolute;
+#slider::-webkit-slider-thumb {
+    position: relative;
+    -webkit-appearance: none;
     z-index: 3;
     width: 40px;
     height: 40px;
-    cursor: pointer;
-    background-color: #10D8C4;
-    box-shadow: 0px 15px 30px rgba(0, 255, 231, 0.6);
+    background: #10D8C4;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    box-shadow: 0px 15px 30px rgba(0, 255, 231, 0.6);
+    background-image: url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+    cursor: pointer;
+}
+#slider::-webkit-slider-thumb:hover{
+    background: #24AEA1;
+    background-image: url(./images/icon-slider.svg);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: center;
+}
+.progress {
+    position: absolute;
+    height: 8px;
+    width: 50%;
+    background-color: #A4F3EB;
+    border-radius: 5px;
+    left: 0px;
+    top: 8px;
 }
 .price {
     display: flex;
@@ -92,7 +100,8 @@ main h3 {
     gap: 10px;
     margin: 40px 0;
 }
-.price h2 {
+.dolar {
+    display: flex;
     color: #293356;
     Font-size: 32px;
     Line-height: 44px;
@@ -116,20 +125,46 @@ main h3 {
     Line-height: 16px;
 }
 .sw {
+    position: relative;
     display: flex;
     align-items: center;
     width: 43px;
     height: 22px;
     background: #CFD8EF;
+    transition: .4s;
+    cursor: pointer;
     border-radius: 15px;
 }
-.sw-circle {
-    width: 14px;
-    height: 14px;
-    background: #FFFFFF;
-    border-radius: 50%;
-    margin-left: 4px;
+.sw input {
+   display: none;
+}
+.check2 {
+    position: absolute;
     cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: .4s;
+    border-radius: 15px;
+}
+.check2:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    cursor: pointer;
+}
+input:checked + .check2 {
+    background-color: #7AEADF;
+}
+input:checked + .check2:before {
+    transform: translateX(21px);
 }
 .persent-m {
     color: #FF8D68;
@@ -218,7 +253,7 @@ button {
     #slider {
         width: 444px;
     }
-    .progres {
+    .progress {
         left: 0px;
     }
     .price h2 {
